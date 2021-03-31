@@ -14,7 +14,7 @@
     <artifactId>springboot-keycloak</artifactId>
     <version>1.0.0</version>
     <description>Keycloak testing backend</description>
-<!--    <packaging>war</packaging>-->
+    <packaging>war</packaging>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
