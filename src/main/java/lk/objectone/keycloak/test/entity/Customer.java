@@ -14,6 +14,7 @@ import javax.persistence.Table;
 @Table(name = "customer")
 public class Customer implements SuperEntity {
     @Id
-    private String username;
-    private String password;
+    private String id;
+    private String name;
+    private String address;
 }

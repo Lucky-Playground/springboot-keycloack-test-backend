@@ -22,28 +22,28 @@ public class CustomerController {
         return customerBO.findAllCustomers();
     }
 
-    @GetMapping(value = "/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CustomerDTO getCustomer(@PathVariable String username) throws Exception {
-        return customerBO.findCustomer(username);
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public CustomerDTO getCustomer(@PathVariable String id) throws Exception {
+        return customerBO.findCustomer(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public String saveCustomer(@RequestBody CustomerDTO customerDTO) throws Exception {
         customerBO.saveCustomer(customerDTO);
-        return customerDTO.getUsername();
+        return customerDTO.getId();
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping(value = "/{username}")
-    public void deleteCustomer(@PathVariable String username) throws Exception {
-        customerBO.deleteCustomer(username);
+    @DeleteMapping(value = "/{id}")
+    public void deleteCustomer(@PathVariable String id) throws Exception {
+        customerBO.deleteCustomer(id);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping(value = "/{username}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updateCustomer(@PathVariable String username, @RequestBody CustomerDTO customerDTO) throws Exception {
-        customerDTO.setUsername(username);
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void updateCustomer(@PathVariable String id, @RequestBody CustomerDTO customerDTO) throws Exception {
+        customerDTO.setId(id);
         customerBO.updateCustomer(customerDTO);
     }
 
